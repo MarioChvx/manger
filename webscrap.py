@@ -1,11 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+import re
 
 def get_img_urls(chapter_url:str):
+    """ Generates a list of strings with the URL's of the images
     """
-    Generates a list of strings with the URL's of the images
+
+def get_chapters_urls(chapter_url:str, n:int):
+    """ Generates a list of urls
+    EXAMPLE URL: 'dorohedoro.online/manga/dorohedoro-chapter-[1]/'
     """
+    urls = list()
+    for i in range(n):
+        urls.append(re.sub("\[[^]]*\]", lambda x: str(i), chapter_url))
+    return urls
+
 
 def imageDownload(url,folder):
     path = os.getcwd()
@@ -31,3 +41,4 @@ def main():
     caps = range(6,62)
     for cap in caps:
         imageDownload(url+str(cap),'Chapter'+str(cap))
+
