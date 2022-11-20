@@ -1,38 +1,28 @@
 import os
-import pathlib
+from pathlib import Path
 
-def ten_exp(num):
-	d = 0
-	while 9 < (num//(10**d)):
-		d += 1
-	return d
+def check_path(path_str):
+    """ Check if the path exist and is a valid directory and return a Path object """
+    wd = Path(path_str).resolve()
+    if not wd.exists():
+        raise Exception(f'Sorry, "{path_str}" do not exist')
+    if not wd.is_dir():
+        raise Exception(f'Sorry, "{path_str}" is not a directory')
+    return wd
 
-def zeros_string(num, dec):
-	res = ""
-	for i in range(0,dec-ten_exp(num)):
-		res = "0" + res
-	res = res + str(num)
-	return res
+def move_to(path:Path):
+    os.chdir(path)
 
-def zeros_numbers(num_elements):
-	nums_str = [""]*num_elements
+def create_father(name:str, wd:Path):
+    """ Create a new file in the path with the name and return a path to it """
+    father_path = wd / name
+    if not father_path.exists():
+        os.mkdir(father_path)
+    return father_path
 
-	for i in range(0,num_elements):
-		nums_str[i] = zeros_string(i+1, ten_exp(num_elements))
-	return nums_str
-
-def rename_shu(path):
-	files = os.listdir(path)
-	for f in files:
-		chap = path + "/" + f
-		os.chdir(chap)
-		images = os.listdir(".")
-		nums = zeros_numbers(len(images))
-		for image in images:
-			for i in range(0,len(images)):
-				if ("_"+str(i+1)+".") in image:
-					print("Cambie nombere de "+image+"   a   "+"c"+f[-2:]+"_"+nums[i]+".png")
-					os.rename(image,"c"+f[-2:]+"_"+nums[i]+".png")
-		os.chdir("..")
-
-rename_shu("/mnt/e/Mangas/Shuumatsu no Valkirie Record of ragnarok")
+def create_chapter(number:int, padding:int, fd:Path):
+    """ Create a new file in the path with the number and return a path to it """
+    chapter_path = fd / f'chapter_{number:0{padding}}'
+    if not chapter_path.exists():
+        os.mkdir(chapter_path)
+    return chapter_path
