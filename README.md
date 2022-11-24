@@ -2,10 +2,9 @@
 
 A python cli for manga downloading
 
-Usage: manga_download.py [OPTIONS]
+## Usage: manga_download.py [OPTIONS]
 
-  Creates a new directory in the specified path with the name and sub-
-  directories where the download images will be stored.
+Creates a new directory in the specified path with the name and sub-directories where the download images will be stored.
 
 |Options||
 |:---|:---|
