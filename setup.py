@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='manga_download',
+    name='manger',
     version='0.1.0',
-    py_modules=['manga_download'],
+    py_modules=['manger'],
     install_requires=[
         'Click',
         'BS4',
@@ -11,7 +11,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'manga_download = manga_download:manga_download',
+            'manger = manger:manger',
         ],
     },
 )
