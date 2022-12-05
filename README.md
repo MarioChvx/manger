@@ -35,7 +35,7 @@ Show a help message and exit.
 An example of his usage with all the parameters filled.
 
 ```bash
-(venv) [mario @ mint-dsk cli_manga_downloader]$ manger --title One_Piece --url https://ww6.read-onepiece.com/ --path ~/Pictures/Mangas
+(venv) [username @ desktop ~]$ manger --title One_Piece --url https://ww6.read-onepiece.com/ --path ~/Pictures/Mangas
 https://ww6.read-onepiece.com/ successfully accessed!
 Created /mnt/PICS/Pictures/Mangas/One_Piece
 https://ww6.read-onepiece.com/manga/one-piece-chapter-1/ successfully accessed!
@@ -53,7 +53,7 @@ Aborted!
 An example of his usage with some of the parameters not filled.
 
 ```bash
-(venv) [mario @ mint-dsk cli_manga_downloader]$ manger --path ~/Pictures/Mangas
+(venv) [username @ desktop ~]$ manger --path ~/Pictures/Mangas
 Provide the title of the manga: One_Piece
 Provide the home direction form the manga site: https://ww6.read-onepiece.com                           
 https://ww6.read-onepiece.com successfully accessed!
