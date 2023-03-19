@@ -7,7 +7,8 @@ def get_soup_page(url: str):
     """Make a request to the site and return the status code and a soup from the site"""
     r = requests.get(url)
     if r.status_code == 200:
-        click.echo(f'{url} successfully accessed!')
+        # click.echo(f'{url} successfully accessed!')
+        pass
     else:
         raise Exception(f'Sorry request status code {r.status_code}')
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -22,7 +23,6 @@ def download_chapter(chapter_url: str):
     """Download the images from the url at current working directory"""
     chapter_soup = get_soup_page(chapter_url)
     images_urls = get_img_urls(chapter_soup)
-    click.echo(f'Downloading...')
     download_images(images_urls)
     pass
 

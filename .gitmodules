@@ -1,0 +1,3 @@
+[submodule "dirtopdf"]
+	path = dirtopdf
+	url = https://github.com/MarioChvx/dirtopdf.git

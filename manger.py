@@ -3,6 +3,7 @@ import directory_management as dm
 import web_scraping as ws
 import re
 import math
+from dirtopdf.dirtopdf import dirtopdf
 
 @click.command
 @click.option(
@@ -35,9 +36,11 @@ def manger(title: str, url: str, path: str):
         if not dm.exist_path(dm.chapter_path(father_path, chapter_name)):
             downloading_path = dm.create_downloading(father_path)
             dm.move_to(downloading_path)
+            click.echo(f'Downloading {chapter_name}...')
             ws.download_chapter(chapter_url)
             dm.move_to(father_path)
             dm.rename_chapter(father_path, chapter_name)
+            # dirtopdf(father_path.joinpath(chapter_name), father_path.joinpath('chapters_pdf'))
         else:
             pass
 

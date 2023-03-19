@@ -23,7 +23,6 @@ def by_chapter_link(name, url, num, path):
         chapter_name = f'chapter_{chapter_url[0]:0{padding}}'
         download_chapter(chapter_url[1], chapter_name, father_path)
 
-
 @click.command()
 @click.option('--name',  prompt='Provide the title of the manga',           help='The title of the manga, is going to be used to name files')
 @click.option('--list',  default='.',   help='The path of the source file.')
