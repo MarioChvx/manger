@@ -3,10 +3,11 @@ import directory_management as dm
 import web_scraping as ws
 import re
 import math
-from dirtopdf.dirtopdf import dirtopdf
+# from dirtopdf.dirtopdf import dirtopdf
 
 @click.command
 @click.option(
+    '-t'
     '--title',
     prompt = 'Provide the title of the manga',
     help = 'The title of the manga, is going to be used to name files, if is not provided the app will ask for it.')

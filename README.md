@@ -6,6 +6,13 @@ If the command is run again with the same parameters, it will only download the 
 
 **Note:** the tool work best with sites like this [site](https://ww6.read-onepiece.com/) maybe it can work other kinds of sites but not granted.
 
+## Pending changes
+
+- remove unused code
+- change usage to `manger www.mangaexample.com` and options
+- pdf option
+- assync download
+
 ## Usage
 
 ```bash
