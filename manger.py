@@ -34,8 +34,8 @@ def manger(title: str, url: str, path: str):
         else:
             chapter_name = f'chapter_{int(chapter_nums[0]):0{padding}}'
 
-        # if not dm.exist_path(dm.chapter_path(father_path, chapter_name)) and i > 1019:
-        if not dm.exist_path(dm.chapter_path(father_path, chapter_name)) and i not in [991,1001,1002,1003,1016,1019,1033,1068]:
+        if not dm.exist_path(dm.chapter_path(father_path, chapter_name)):
+        # if not dm.exist_path(dm.chapter_path(father_path, chapter_name)) and i not in [991,1001,1002,1003,1016,1019,1033,1068]:
             downloading_path = dm.create_downloading(father_path)
             dm.move_to(downloading_path)
             click.echo(f'Downloading {chapter_name}...')
