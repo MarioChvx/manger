@@ -58,4 +58,3 @@ def soup_page(url:str):
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
     return soup
-
