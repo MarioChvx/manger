@@ -6,18 +6,35 @@ import math
 # from dirtopdf.dirtopdf import dirtopdf
 
 @click.command
+@click.argument('url')
 @click.option(
-    '-t'
+    '-t',
     '--title',
-    prompt = 'Provide the title of the manga',
-    help = 'The title of the manga, is going to be used to name files, if is not provided the app will ask for it.')
-@click.option('--url',
-    prompt = 'Provide the home direction form the manga site',
-    help = 'The URL where the list of available chapters is displayed, if is not provided the app will ask for it.')
-@click.option('--path',
+    # prompt = 'Provide the title of the manga',
+    help = 'The title of the manga, is going to be used to name files, if is not provided the app will infer it from the homepage.')
+@click.option(
+    '-p',
+    '--path',
     default='.',
     help='The path to save the downloads, if is not provided current path will be used')
-def manger(title: str, url: str, path: str):
+@click.option(
+    '--pdf',
+    is_flag= True,
+    help= 'If it is enabled a copy of each chapter in pdf format will be saved')
+def manger(url: str, title: str, path: str, pdf: bool):
+    """
+    manger is a command to download manga from an specific type of page.
+    It receives an url of the page, the following are examples of pa-
+    ges which manger works: \n
+      - https://w16.read-onepiece.com/ \n
+      - https://manga-baki.com/ \n
+      - https://dorohedoro.online/ \n
+      - https://record-ofragnarok.com/ \n
+    """
+
+    click.echo(f'hola')
+
+def manga_download(url: str, title: str, path: str):
     soup_home = ws.get_soup_page(url)
     chapters_urls = ws.get_chapters_urls(soup_home)
     chapters_index = [(int(re.findall('[\d]+', re.findall('chapter.*\d',url)[0])[0]), url) for url in chapters_urls]
