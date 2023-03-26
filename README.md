@@ -36,13 +36,13 @@ cd manger
 For users of unix based operative systems
 
 ```bash
-python3 -m pip install --editable .
+python3 -m pip install --user --editable .
 ```
 
 For Windows users
 
 ```bash
-pip install --editable .
+py -m pip install --user --editable .
 ```
 
 ## Usage
