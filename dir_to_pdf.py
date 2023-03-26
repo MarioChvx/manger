@@ -1,20 +1,8 @@
 import os
-import click
 from pathlib import Path
-from fpdf import FPDF
 from PIL import Image
 
-@click.command
-@click.option(
-    '--source',
-    prompt = 'Provide the path of the directory you want to convert: \n -> ',
-    help = 'The path of the directory you want to convert.')
-@click.option(
-    '--destiny',
-    prompt = 'Provide the path of the directory you want to save the new pdf: \n -> ',
-    help = 'The path of the directory where you want to save the new pdf.',
-    default = '.')
-def dirtopdf(source: Path, destiny: Path):
+def convert_pdf(source: Path, destiny: Path):
     """Convert a directory of images to a PDF file."""
     source = Path(source).resolve().absolute()
     destiny = Path(destiny).resolve().absolute()
@@ -37,4 +25,4 @@ def dirtopdf(source: Path, destiny: Path):
 
 if __name__ == '__main__':
     # Convert the images to PDF
-    dirtopdf()
+    pass
