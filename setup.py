@@ -7,7 +7,8 @@ setup(
     install_requires=[
         'Click',
         'BS4',
-        'Requests'
+        'Requests',
+        'Pillow'
     ],
     entry_points={
         'console_scripts': [
