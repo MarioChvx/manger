@@ -8,12 +8,14 @@ def manger(ctx):
     """
     manger contains different useful commands to download manga and save it as pdf.
     To know more about each command run "manger COMMAND --help".
+    CAUTION! is probable that manger will not work correctly or not work at all 
+    with every single site, it could download images that doesn't belong to the
+    manga or some times will not be able to access certain pages.
     """
     if ctx.invoked_subcommand is None:
         click.echo('No command selected. Pease run "manger --help" to know more about manger')
-    else:
+    # else:
         # click.echo(f"I am about to invoke {ctx.invoked_subcommand}")
-        pass
 
 @manger.command()
 @click.argument('url')
