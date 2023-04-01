@@ -11,7 +11,7 @@ If the command is run again with the same parameters, it will only download the 
 - remove unused code
 - change usage to `manger www.mangaexample.com` and options
 - pdf option
-- assync download
+- async download
 
 ## Usage
 

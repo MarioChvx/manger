@@ -29,9 +29,9 @@ def rename_chapter(father_path: Path, chapter_name: str):
     os.rename(father_path / 'downloading', father_path / chapter_name)
     return father_path / chapter_name
 
-def create_father(name:str, wd:Path):
+def create_father(name: str, wd: Path):
     """ Create a new file in the path with the name and return a path to it """
-    father_path = wd / name
+    father_path = wd.joinpath(name)
     if not father_path.exists():
         os.mkdir(father_path)
         click.echo(f'Created {father_path}')
