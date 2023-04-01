@@ -6,10 +6,7 @@ import click
 def get_soup_page(url: str):
     """Make a request to the site and return the status code and a soup from the site"""
     r = requests.get(url)
-    if r.status_code == 200:
-        # click.echo(f'{url} successfully accessed!')
-        pass
-    else:
+    if r.status_code != 200:
         raise Exception(f'Sorry request status code {r.status_code}')
     soup = BeautifulSoup(r.text, 'html.parser')
     return soup

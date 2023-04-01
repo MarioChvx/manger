@@ -44,6 +44,7 @@ def manga(url: str, title: str, path: str, pdf: bool):
       - https://manga-baki.com/ \n
       - https://dorohedoro.online/ \n
       - https://record-ofragnarok.com/ \n
+      - 
     """
 
     ml.download_manga(url, title, path, pdf)
