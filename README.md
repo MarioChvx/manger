@@ -49,21 +49,7 @@ py -m pip install --user --editable .
 ## Usage
 
 ```bash
-manger [OPTIONS]
+manger --help
 ```
 
-### Options
-
-- `--title` *(TEXT)*
-
-The title of the manga, is going to be used to name files, if is not provided the app will ask for it.
-
-- `--url` *(TEXT)*
-
-The URL where the list of available chapters is displayed, ifis not provided the app will ask for it.
-
-- `--path` *(TEXT)*
-
-The path to save the downloads if is not provided current path will be used
-
-- `--help`
+For more detailed usage descriptions
