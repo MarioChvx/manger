@@ -73,7 +73,12 @@ def chapter(url: str, title: str, path: str, pdf: bool):
     pass
 
 @manger.command()
-@click.argument('filename', type=click.Path(exists=True))
+@click.argument(
+    'path',
+    type=click.Path(exists=True),
+    default= '.',
+    help= 'The path of the father from the target directories, if \'--single\' is selected the path to target directory'
+)
 @click.option(
     '--multiple/--single',
     default= True,
@@ -84,11 +89,11 @@ def chapter(url: str, title: str, path: str, pdf: bool):
     default='.',
     help='The path to save the file with the pdf documents, by default saves in the current directory'
 )
-def pdf(filename, multiple: bool, destiny: str):
+def pdf(path, multiple: bool, destiny: str):
     """
     Use it to convert files with images inside to pdf documents.
     """
-    pass
+    ml.convert_to_pdf(path, multiple, destiny)
 
 if __name__ == '__main__':
     manger()
