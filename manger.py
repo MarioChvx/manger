@@ -20,22 +20,26 @@ def manger(ctx):
 @manger.command()
 @click.argument('url')
 @click.option(
-    '-t',
-    '--title',
+    '-t', '--title',
     help = 'The title of the manga, is going to be used to name files, if is not provided the app will infer it from the homepage.'
 )
 @click.option(
-    '-p',
-    '--path',
+    '-p', '--path',
     default='.',
-    help='The path to save the downloads, if is not provided current path will be used'
+    help='The path to save the downloads, if is not provided current path will be used.'
 )
 @click.option(
     '--pdf',
     is_flag= True,
-    help= 'If it is enabled a copy of each chapter in pdf format will be saved'
+    help= 'If it is enabled a copy of each chapter in pdf format will be saved.'
 )
-def manga(url: str, title: str, path: str, pdf: bool):
+@click.option(
+    '-r', '--range',
+    nargs= 2, type= click.Tuple([int, int]),
+    default = (-1, -1),
+    help= 'Specify a range of chapters to be downloaded, the range should follo this format (1,2), limits are inclusive.'
+)
+def manga(url: str, title: str, path: str, pdf: bool, range):
     """
     Will download all chapters from a specific type of page.
     It receives an url of the page, the following are examples
@@ -52,21 +56,16 @@ def manga(url: str, title: str, path: str, pdf: bool):
 @manger.command()
 @click.argument('url')
 @click.option(
-    '-t',
-    '--title',
-    help= 'The title of the manga, is going to be used to name files, if is not provided the app will infer it from the homepage.'
-)
+    '-t', '--title',
+    help= 'The title of the manga, is going to be used to name files, if is not provided the app will infer it from the homepage.')
 @click.option(
-    '-p',
-    '--path',
+    '-p', '--path',
     default='.',
-    help='The path to save the downloads, if is not provided current path will be used'
-)
+    help='The path to save the downloads, if is not provided current path will be used')
 @click.option(
     '--pdf',
     is_flag= True,
-    help= 'If it is enabled a copy of each chapter in pdf format will be saved'
-)
+    help= 'If it is enabled a copy of each chapter in pdf format will be saved')
 def chapter(url: str, title: str, path: str, pdf: bool):
     """
     Will download a single chapter from the url passed as argument.
@@ -78,8 +77,7 @@ def chapter(url: str, title: str, path: str, pdf: bool):
 @click.option(
     '--multiple/--single',
     default= True,
-    help= 'Default is "--multiple" that will convert all the subdirectories to pdf, "--single" will only convert the directory specified'
-)
+    help= 'Default is "--multiple" that will convert all the subdirectories to pdf, "--single" will only convert the directory specified')
 @click.option(
     '-d',
     '--destiny',
