@@ -9,7 +9,10 @@ If the command is run again with the same parameters, it will only download the 
 ## Pending changes
 
 - complete pending functions
-  - add range of chapters to `manga` command
+  - manga download
+    - add range of chapters option
+  - chapter download
+  - convert to pdf
 - async download
 
 ## Requirements
