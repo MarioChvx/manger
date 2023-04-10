@@ -7,7 +7,7 @@ import directory_management as dm
 import web_scraping as ws
 from dir_to_pdf import convert_pdf as pdf
 
-def download_manga(url: str, title: str, path: str, pdf: bool):
+def download_manga(url: str, title: str, path: str, pdf: bool, range):
     soup_home = ws.get_soup_page(url)
     title = title if title is not None else soup_home.title.string
     chapters_urls = ws.get_chapters_urls(soup_home)
@@ -46,5 +46,9 @@ def convert_to_pdf(path, multiple: bool, destiny: str):
     wd = dm.chapter_path(path)
     if not multiple:
         pdf(wd, destiny)
-    save_path = dm.chapter_path(des)
-    
+        return
+    save_path = dm.chapter_path(destiny)
+    for directory in wd.iterdir():
+        if not directory.is_dir():
+            pass
+        pdf(directory, destiny)
