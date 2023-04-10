@@ -77,20 +77,20 @@ def chapter(url: str, title: str, path: str, pdf: bool):
     'path',
     type=click.Path(exists=True),
     default= '.',)
+@click.argument(
+    'destiny',
+    type=click.Path(exists=True),
+    default='.')
 @click.option(
     '--multiple/--single',
     default= True,
     help= 'Default is "--multiple" that will convert all the subdirectories to pdf, "--single" will only convert the directory specified')
-@click.option(
-    '-d',
-    '--destiny',
-    default='.',
-    help='The path to save the file with the pdf documents, by default saves in the current directory')
 def pdf(path, multiple: bool, destiny: str):
     """
     Use it to convert files with images inside to pdf documents receives he path of the father from the target directories, if \'--single\' is selected the path to target directory'
     """
-    ml.convert_to_pdf(path, multiple, destiny)
+    # ml.convert_to_pdf(path, destiny, multiple)
+    ml.convert_to_pdf(path, destiny)
 
 if __name__ == '__main__':
     manger()

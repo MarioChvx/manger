@@ -45,13 +45,15 @@ def guess_title(url: str, title:str, padding: int = 0):
     else: 
         return title
 
-def convert_to_pdf(path, multiple: bool, destiny: str):
-    wd = dm.chapter_path(path)
-    if not multiple:
+def convert_to_pdf(path, destiny):
+    wd = dm.check_path(path)
+    destiny = dm.check_path(destiny)
+
+    if not dm.has_subdirectories(wd):
         convert_pdf(wd, destiny)
         return
-    save_path = dm.chapter_path(destiny)
+
     for directory in wd.iterdir():
-        if not directory.is_dir():
-            pass
-        convert_pdf(directory, destiny)
+        if directory.is_dir() and directory.name != 'downloading':
+            convert_pdf(directory, destiny)
+        pass

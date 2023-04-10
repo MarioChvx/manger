@@ -47,3 +47,11 @@ def read_file(path:Path):
         for line in f:
             content += line
     return content
+
+def has_subdirectories(path: Path):
+    if not path.is_dir():
+        raise Exception('Isn\'t a directory')
+    for son in path.iterdir():
+        if son.is_dir():
+            return True
+        pass

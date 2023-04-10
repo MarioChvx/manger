@@ -22,6 +22,7 @@ def convert_pdf(source: Path, destiny: Path):
     images[0].save(
         pdf_path, 'PDF', resolution=100.0, save_all=True, append_images=images[1:]
     )
+    print(pdf_path)
 
 if __name__ == '__main__':
     # Convert the images to PDF
