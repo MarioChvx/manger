@@ -34,12 +34,12 @@ def manger(ctx):
     help= 'If it is enabled a copy of each chapter in pdf format will be saved.'
 )
 @click.option(
-    '-r', '--range',
+    '-r', '--range', 'range_',
     nargs= 2, type= click.Tuple([int, int]),
     default = (-1, -1),
     help= 'Specify a range of chapters to be downloaded, the range should follo this format (1,2), limits are inclusive.'
 )
-def manga(url: str, title: str, path: str, pdf: bool, range):
+def manga(url: str, title: str, path: str, pdf: bool, range_: tuple):
     """
     Will download all chapters from a specific type of page.
     It receives an url of the page, the following are examples
@@ -51,7 +51,7 @@ def manga(url: str, title: str, path: str, pdf: bool, range):
       - 
     """
 
-    ml.download_manga(url, title, path, pdf)
+    ml.download_manga(url, title, path, pdf, range_)
 
 @manger.command()
 @click.argument('url')
@@ -76,9 +76,7 @@ def chapter(url: str, title: str, path: str, pdf: bool):
 @click.argument(
     'path',
     type=click.Path(exists=True),
-    default= '.',
-    help= 'The path of the father from the target directories, if \'--single\' is selected the path to target directory'
-)
+    default= '.',)
 @click.option(
     '--multiple/--single',
     default= True,
@@ -87,11 +85,10 @@ def chapter(url: str, title: str, path: str, pdf: bool):
     '-d',
     '--destiny',
     default='.',
-    help='The path to save the file with the pdf documents, by default saves in the current directory'
-)
+    help='The path to save the file with the pdf documents, by default saves in the current directory')
 def pdf(path, multiple: bool, destiny: str):
     """
-    Use it to convert files with images inside to pdf documents.
+    Use it to convert files with images inside to pdf documents receives he path of the father from the target directories, if \'--single\' is selected the path to target directory'
     """
     ml.convert_to_pdf(path, multiple, destiny)
 

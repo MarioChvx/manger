@@ -14,7 +14,7 @@ def get_soup_page(url: str):
 def get_chapters_urls(soup_home: BeautifulSoup):
     """Extract the chapters url from the soup_home"""
     chapters_urls = [a['href'] for a in soup_home.find_all('a') if 'chapter' in a['href']]
-    return chapters_urls
+    return sorted(chapters_urls)
 
 def download_chapter(chapter_url: str):
     """Download the images from the url at current working directory"""
