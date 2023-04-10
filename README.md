@@ -12,7 +12,7 @@ If the command is run again with the same parameters, it will only download the 
   - manga download
     - add range of chapters option
   - chapter download
-  - convert to pdf
+- better handle error from requests
 - async download
 
 ## Requirements
