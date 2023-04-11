@@ -15,6 +15,7 @@ def download_manga(url: str, title: str, path: str, pdf: bool, range):
         (int(re.search(r'chapter-(\d+)/', url).group(1)), url)
         for url in chapters_urls
         if re.search(r'chapter-(\d+)/', url)
+    ]
     wd = dm.check_path(path)
     father_path = dm.create_father(title, wd)
 
