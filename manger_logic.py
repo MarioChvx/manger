@@ -21,7 +21,8 @@ def download_manga(url: str, title: str, path: str, pdf: bool, range):
 
     padding = math.floor(math.log(len(chapters_urls), 10))
     # for url in list(reversed(chapters_urls)):
-    for i, url in chapters_index:
+    for i, url in sorted(chapters_index):
+        print(i, url)
         download_chapter(url, father_path, pdf= pdf, padding= padding)
 
 def download_chapter(url: str, path: str, title: str = '', pdf: bool = False, padding: int = 0):
