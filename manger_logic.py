@@ -11,12 +11,16 @@ def download_manga(url: str, title: str, path: str, pdf: bool, range):
     soup_home = ws.get_soup_page(url)
     title = title if title is not None else soup_home.title.string
     chapters_urls = ws.get_chapters_urls(soup_home)
+    chapters_index = [
+        (int(re.search(r'chapter-(\d+)/', url).group(1)), url)
+        for url in chapters_urls
+        if re.search(r'chapter-(\d+)/', url)
     wd = dm.check_path(path)
     father_path = dm.create_father(title, wd)
 
     padding = math.floor(math.log(len(chapters_urls), 10))
     # for url in list(reversed(chapters_urls)):
-    for url in chapters_urls:
+    for i, url in chapters_index:
         download_chapter(url, father_path, pdf= pdf, padding= padding)
 
 def download_chapter(url: str, path: str, title: str = '', pdf: bool = False, padding: int = 0):
