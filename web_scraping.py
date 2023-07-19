@@ -32,7 +32,7 @@ def download_chapter(chapter_url: str):
 def get_img_urls(soup: BeautifulSoup):
     """ Generates a list of strings with the URL's of the images """
     images = soup.find_all('img')
-    images_urls = [image['src'] for image in images]
+    images_urls = [image['src'] for image in images if image.has_attr('src')]
     return images_urls
 
 

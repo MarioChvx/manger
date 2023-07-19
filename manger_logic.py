@@ -59,6 +59,10 @@ def convert_to_pdf(path, destiny):
         convert_pdf(wd, destiny)
         return
 
+    print(*sorted(filter(lambda e: 'chapter' in str(e),list(wd.iterdir())), key=lambda path: float(re.search(r'chapter_(\d+)', str(path)).group(0))), sep='\n')
+    return
+
+
     for directory in wd.iterdir():
         if directory.is_dir() and directory.name != 'downloading':
             convert_pdf(directory, destiny)
