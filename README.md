@@ -7,6 +7,7 @@ manger is a python cli tool to download manga. It just need a **url** of the ind
 You don't have to worry if the manga doesn't downloading in the frist session, just run the same command again and manger will start where it leaved.
 
 **Note:** the tool work best with sites like this [site](https://ww6.read-onepiece.com/) maybe it can work other kinds of sites but not granted.
+
 ## Requirements
 
 - Having installed **Python 3.9** or superior.
