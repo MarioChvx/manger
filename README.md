@@ -1,5 +1,7 @@
 # `manger`
 
+![banner](https://user-images.githubusercontent.com/100007797/257945920-1a057ecc-1968-4fe2-a26a-1cffa87733df.png)
+
 manger is a python cli tool to download manga. It just need a **url** of the index from the manga but you can also personalize other options like its title, path to be saved, if you want it to create a copy of each chapter in pdf.
 
 You don't have to worry if the manga doesn't downloading in the frist session, just run the same command again and manger will start where it leaved.
